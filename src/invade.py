@@ -96,7 +96,6 @@ class Shot(GameObject):
         self.width = SHIPSIZE / 4
         self.update_rect()
 
-
     def update(self):
         super(Shot, self).update()
         self.pos[1] += self.speed
