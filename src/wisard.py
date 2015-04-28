@@ -13,18 +13,31 @@ Wisard - Principal
 
 Wisard e uma impplementacao de rede sem peso.
 """
+RND = 3141
+def wirer(retina):
+    return [(retina.pop(RND % len(retina)), retina.pop(RND % len(retina))) for t in range(len(retina)//2)]
+
+def tupler(x):
+    return [(bit,)+tup for bit in (0,1) for tup in tupler(x-1)] if x else [(0,),(1,)]
 
 
 class Wisard:
-    """Uma caverna com cameras tuneis e habitantes. :ref:`caverna`
+    """Rede neural sem peso. :ref:`wisard'
     """
-    def __init__(self, rx=16,  ry=16, dis=2, ramorder=2):
-        """Initializes builder and gui. """
-        rx,  ry, dis, ramorder  = rx,  ry, dis, ramorder
-        wiring = shuffle(range(rx*ry))
-        discriminators = [Discriminator() for d in range(dis)]
+    def __init__(self, rx=4,  ry=3, discriminators=3, ramorder=2):
+        self.cortex = [{t:0 for t in tupler(ramorder-1)}]* discriminators
+    def learn(retina):
+        [self.cortex[(retina.pop(RND % len(retina)), retina.pop(RND % len(retina)))].put(1)
+         for t in range(len(retina)//2)]
+    def classify(bitvector):
+        return sun([self.cortex[(retina.pop(RND % len(retina)), retina.pop(RND % len(retina)))]
+        	 for t in range(len(retina)//2)])
 
 
-def main(gui):
-    print('Caverna 0.1.0')
-    caverna = Wisard()
+def main():
+    print('Wisard 0.1.0')
+    print(tupler(1))
+    print(wirer(list(range(20))))
+    print(wirer(list(range(20))))
+    
+main()
