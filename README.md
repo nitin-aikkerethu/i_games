@@ -1,4 +1,4 @@
 i_games
 =======
 
-Games with neuropedagogic insight of efficient people
+Games with neuropedagogic insight of hardworking people
